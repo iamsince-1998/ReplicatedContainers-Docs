@@ -9,7 +9,7 @@ const config = {
 
   // GitHub Pages URL — update these with your GitHub username and repo name
   url: 'https://iamsince-1998.github.io',
-  baseUrl: '/Plugins-Docs/',
+  baseUrl: '/ReplicatedContainers-Docs/',
 
   // GitHub Pages deployment config
   organizationName: 'iamsince-1998', // Your GitHub username
@@ -67,8 +67,8 @@ const config = {
             label: 'Docs',
           },
           {
-            href: 'https://github.com/iamsince-1998/Plugins-Docs',
-            label: 'GitHub',
+            href: 'https://store.steampowered.com/app/3621560/IndianOps/',
+            label: 'IndianOps on Steam',
             position: 'right',
           },
         ],
@@ -84,11 +84,35 @@ const config = {
             ],
           },
           {
-            title: 'More',
+            title: 'Connect',
             items: [
               {
-                label: 'GitHub',
-                href: 'https://github.com/iamsince-1998/Plugins-Docs',
+                label: 'Fab Seller Page',
+                href: 'https://www.fab.com/sellers/iamsince1998',
+              },
+              {
+                label: 'Discord',
+                href: 'https://discord.gg/vxn4gadpwC',
+              },
+              {
+                label: 'Email',
+                href: 'mailto:contact2iamsince1998@gmail.com',
+              },
+              {
+                label: 'YouTube',
+                href: 'https://www.youtube.com/@iamsince1998',
+              },
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/iamsince1998',
+              },
+              {
+                label: 'yt - @iamsince1998',
+                href: 'https://www.youtube.com/@iamsince1998',
+              },
+              {
+                label: 'IndianOps on Steam',
+                href: 'https://store.steampowered.com/app/3621560/IndianOps/',
               },
             ],
           },
