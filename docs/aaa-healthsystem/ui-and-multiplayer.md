@@ -48,22 +48,3 @@ Client fire/hit input
 | Client sees stale HP | Are updates applied on server authority? |
 | Death not firing | Is health clamped and zero-check centralized? |
 | Regen too strong | Increase interval or lower per-tick regen |
-
-
-## UI screenshots (provided)
-
-### Event dispatchers list
-
-![Dispatchers list](https://github.com/user-attachments/assets/e4d041ef-1f07-4769-a383-5fa91b2e124a)
-
-### Bind health/armor progress bars
-
-![Bind progress bars](https://github.com/user-attachments/assets/2f562a8c-df2e-4eee-9a49-5e90c8c2154e)
-
-### Helper functions and extra dispatchers
-
-![Health helper functions](https://github.com/user-attachments/assets/b29ac1c6-5be2-4606-85f2-0ca07388e8d6)
-
-![Armor helper functions](https://github.com/user-attachments/assets/46e031b1-9515-4af0-bd30-d17c6514cbf1)
-
-![More event dispatchers](https://github.com/user-attachments/assets/e11e13e3-9a16-49df-b6b3-1c5b02f80c60)

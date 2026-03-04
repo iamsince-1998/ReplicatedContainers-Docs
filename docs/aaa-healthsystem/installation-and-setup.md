@@ -60,32 +60,3 @@ BeginPlay
 ```
 
 Next: [Damage, Regeneration & Events](/aaa-healthsystem/damage-regeneration-events).
-
-
-## Visual setup walkthrough
-
-### Install from Epic Launcher
-
-![Install from Epic Launcher](https://github.com/user-attachments/assets/6ea4dd78-4e81-4340-bd54-11c2ff3f4ff3)
-
-### Install from GitHub
-
-![Install from GitHub](https://github.com/user-attachments/assets/5d267dcd-ba93-4d6a-85fa-919253bbcfd0)
-
-### Plugins folder setup
-
-![GitHub plugin folder setup](https://github.com/user-attachments/assets/e5373a00-6cc4-457c-b3b9-adc142d7f623)
-
-![Plugin path example](https://github.com/user-attachments/assets/433363f1-a58d-47af-b17e-8178624deb69)
-
-### Add health component + details panel
-
-![Add component](https://github.com/user-attachments/assets/8b58b6f7-8bc4-4a0d-b57a-6a4f589a65d5)
-
-![Details panel](https://github.com/user-attachments/assets/7ae52056-ac29-4146-aa7b-ae25efa89e64)
-
-### Health and armor tuning
-
-![Health settings](https://github.com/user-attachments/assets/bb0dbf06-f83a-4079-8aea-e6f20a92e8da)
-
-![Armor settings](https://github.com/user-attachments/assets/8ffef254-9fad-43a3-a6c3-18a1a2cea7c2)

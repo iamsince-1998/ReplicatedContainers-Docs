@@ -13,12 +13,10 @@ Runtime plugin that automatically tunes FPS, scalability, and dynamic resolution
 
 ## Visual runtime shape
 
-```mermaid
-flowchart LR
-  A[Frame Samples] --> B[Thermal Estimate]
-  B --> C[Policy Decision]
-  C --> D[Apply FPS/Scalability/DR Changes]
-  D --> A
+```text
+Frame Samples -> Thermal Estimate -> Policy Decision -> Apply Changes
+      ^                                                   |
+      |------------------- next evaluation tick ----------|
 ```
 
 ## Core features

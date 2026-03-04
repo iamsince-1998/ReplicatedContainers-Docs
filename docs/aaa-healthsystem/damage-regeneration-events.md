@@ -11,34 +11,26 @@ import TabItem from '@theme/TabItem';
 
 ## Damage pipeline
 
-```mermaid
-flowchart LR
-    A[Apply Damage] --> B[Health Component Receives Damage]
-    B --> C{Has Armor?}
-    C -- Yes --> D[Consume Armor First]
-    D --> E{Damage Remaining?}
-    E -- Yes --> F[Consume Health]
-    E -- No --> G[Emit Update Events]
-    C -- No --> F
-    F --> H{Health <= 0?}
-    H -- Yes --> I[Broadcast Death Event]
-    H -- No --> G
+```text
+ApplyDamage -> Component receives damage
+           -> Armor absorbs first (if enabled)
+           -> Remaining damage goes to health
+           -> Fires update events
+           -> Fires death event at 0 health
 ```
 
 ## Toggle: Blueprint vs C++ implementation
 
 <Tabs>
-  <TabItem value="bp" label="Blueprint Visual" default>
+  <TabItem value="bp" label="Blueprint Nodes" default>
 
-```mermaid
-flowchart TD
-    N1([Event AnyDamage]) --> N2{HasArmor?}
-    N2 -->|True| N3[Consume Armor]
-    N2 -->|False| N4[Consume Health]
-    N3 --> N5{Health <= 0?}
-    N4 --> N5
-    N5 -->|Yes| N6[Broadcast OnDeath]
-    N5 -->|No| N7[Broadcast OnHealthChanged]
+```text
+Event AnyDamage
+  -> Branch (HasArmor?)
+      True: Consume Armor
+      False: Consume Health
+  -> Call Update Health Bar
+  -> If Health <= 0 : Broadcast Death
 ```
 
   </TabItem>
@@ -69,31 +61,13 @@ void AMyCharacter::HandleIncomingDamage(float Damage)
 
 ## Regeneration pattern
 
-```mermaid
-flowchart TD
-    T1([Timer Tick]) --> T2{Is Alive?}
-    T2 -->|No| T8[Stop]
-    T2 -->|Yes| T3{Regen Enabled?}
-    T3 -->|No| T8
-    T3 -->|Yes| T4[Add Health / Armor]
-    T4 --> T5[Clamp To Max Values]
-    T5 --> T6[Broadcast UI Updates]
-    T6 --> T7[Next Tick]
+```text
+Timer (every N seconds)
+  -> If Alive
+  -> If Regen Enabled
+  -> Add Health / Add Armor
+  -> Clamp to Max
+  -> Broadcast UI updates
 ```
 
 Next: [UI + Multiplayer Patterns](/aaa-healthsystem/ui-and-multiplayer).
-
-
-## Real Blueprint screenshots (provided)
-
-### Apply damage
-
-![Damage actor](https://github.com/user-attachments/assets/f6775b9b-2636-48c4-ba5a-83ede0acfd11)
-
-### AnyDamage event flow
-
-![AnyDamage event](https://github.com/user-attachments/assets/342ef9ef-09b1-47b0-967b-27379dc464a1)
-
-### Regeneration setup
-
-![Regenerate health](https://github.com/user-attachments/assets/24313210-9b64-4109-b13c-70bc36dee018)

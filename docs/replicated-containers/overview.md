@@ -30,12 +30,8 @@ Compatible with **Unreal Engine 4.27 through 5.x** on all supported platforms.
 
 ## Container sync flow (visual)
 
-```mermaid
-flowchart LR
-  A[Client Intent] --> B[Server RPC]
-  B --> C[Mutate Replicated Map/Set]
-  C --> D[FastArray Delta Replication]
-  D --> E[Clients OnRep / Delegates]
+```text
+Client Intent -> Server RPC -> Mutate Map/Set -> FastArray Delta -> Clients OnRep
 ```
 
 ## Blueprint vs C++ mutation patterns
