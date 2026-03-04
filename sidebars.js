@@ -35,7 +35,12 @@ const sidebars = {
         {
           type: 'category',
           label: 'AAA_HealthSystem',
-          items: ['aaa-healthsystem/overview'],
+          items: [
+            'aaa-healthsystem/overview',
+            'aaa-healthsystem/installation-and-setup',
+            'aaa-healthsystem/damage-regeneration-events',
+            'aaa-healthsystem/ui-and-multiplayer',
+          ],
         },
       ],
     },
