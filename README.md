@@ -6,26 +6,27 @@ Documentation site built with [Docusaurus](https://docusaurus.io/), set up for *
 
 - https://iamsince-1998.github.io/Plugins-Docs/
 
-## 🚀 Setup
+## Primary Plugin Docs
 
-### 1. Install dependencies
+- **Replicated Containers**
+  - Overview: `docs/replicated-containers/overview.md`
+  - Installation: `docs/replicated-containers/installation.md`
+  - Quickstart (Blueprint): `docs/replicated-containers/quickstart-blueprint.md`
+  - Quickstart (C++): `docs/replicated-containers/quickstart-cpp.md`
+  - API Reference: `docs/replicated-containers/api-reference.md`
+
+## Live Documentation Website
+
+- https://iamsince-1998.github.io/Plugins-Docs/
+
+> If the site URL shows this README or a plain markdown page instead of the Docusaurus site,
+> go to **Settings → Pages** and set **Source = GitHub Actions**.
+
+## Local Preview
 
 ```bash
-npm install
-```
-
-### 2. Run locally
-
-```bash
-npm start
-```
-
-Opens at `http://localhost:3000`. Hot-reloads as you edit.
-
-### 3. Build
-
-```bash
-npm run build
+npm ci
+npm run start
 ```
 
 Generates the static site into `./build`.
