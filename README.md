@@ -1,90 +1,33 @@
 # Plugins Docs
 
-Documentation site built with [Docusaurus](https://docusaurus.io/), deployed to GitHub Pages.
+This repository hosts documentation for my Unreal Engine plugins.
 
-## 🚀 Setup
+## Primary Plugin Docs
 
-### 1. Install dependencies
+- **Replicated Containers**
+  - Overview: `docs/replicated-containers/overview.md`
+  - Installation: `docs/replicated-containers/installation.md`
+  - Quickstart (Blueprint): `docs/replicated-containers/quickstart-blueprint.md`
+  - Quickstart (C++): `docs/replicated-containers/quickstart-cpp.md`
+  - API Reference: `docs/replicated-containers/api-reference.md`
+
+## Live Documentation Website
+
+- https://iamsince-1998.github.io/Plugins-Docs/
+
+> If the site URL shows this README or a plain markdown page instead of the Docusaurus site,
+> go to **Settings → Pages** and set **Source = GitHub Actions**.
+
+## Local Preview
 
 ```bash
-npm install
+npm ci
+npm run start
 ```
 
-### 2. Run locally
-
-```bash
-npm start
-```
-
-Opens at `http://localhost:3000`. Hot-reloads as you edit.
-
-### 3. Build
+## Production Build Check
 
 ```bash
 npm run build
+npm run serve -- --host 0.0.0.0 --port 4173
 ```
-
-Generates the static site into `./build`.
-
----
-
-## ⚙️ Configure for your GitHub
-
-Before deploying, update these fields in `docusaurus.config.js`:
-
-```js
-url: 'https://YOUR_GITHUB_USERNAME.github.io',
-baseUrl: '/YOUR_REPO_NAME/',
-organizationName: 'YOUR_GITHUB_USERNAME',
-projectName: 'YOUR_REPO_NAME',
-```
-
----
-
-## 🌐 Deploy to GitHub Pages
-
-### Automatic (recommended)
-
-This repo includes a GitHub Actions workflow (`.github/workflows/deploy.yml`).
-
-1. Push this repo to GitHub
-2. Go to **Settings → Pages**
-3. Set source to **Deploy from a branch → gh-pages**
-4. Push any commit to `main` — it deploys automatically ✅
-
-### Manual
-
-```bash
-GIT_USER=your_github_username npm run deploy
-```
-
----
-
-## 📁 Project Structure
-
-```
-Plugins-Docs/
-├── docs/
-│   ├── intro.md              # Homepage
-│   ├── guides/
-│   │   ├── getting-started.md
-│   │   ├── installation.md
-│   │   └── configuration.md
-│   └── api/
-│       ├── overview.md
-│       ├── authentication.md
-│       ├── endpoints.md
-│       └── errors.md
-├── static/                   # Static assets
-├── src/css/custom.css        # Custom styles
-├── docusaurus.config.js      # Main config
-└── sidebars.js               # Sidebar structure
-```
-
-## ✏️ Adding a new doc
-
-1. Create a `.md` file anywhere inside `docs/`
-2. Add a frontmatter `id` and `title`
-3. Add it to `sidebars.js`
-
-That's it!
