@@ -3,8 +3,8 @@ const { themes: prismThemes } = require('prism-react-renderer');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Plugins Docs',
-  tagline: 'Centralized documentation for all your plugins',
+  title: 'Replicated Containers Docs',
+  tagline: 'Documentation for the Replicated Containers plugin',
   favicon: 'img/logo.svg',
 
   // GitHub Pages URL — update these with your GitHub username and repo name
@@ -54,9 +54,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Plugins Docs',
+        title: 'Replicated Containers Docs',
         logo: {
-          alt: 'Plugins Docs Logo',
+          alt: 'Replicated Containers Docs Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -81,8 +81,6 @@ const config = {
             items: [
               { label: 'Introduction', to: '/' },
               { label: 'Replicated Containers', to: '/replicated-containers/overview' },
-              { label: 'Mobile Performance Optimizer', to: '/mobile-performance-optimizer/overview' },
-              { label: 'AAA_HealthSystem', to: '/aaa-healthsystem/overview' },
             ],
           },
           {
@@ -95,7 +93,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Plugins Docs. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Replicated Containers Docs. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

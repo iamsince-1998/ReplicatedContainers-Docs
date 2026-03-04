@@ -1,19 +1,15 @@
-# Plugins Docs
+# Replicated Containers Docs
 
-Documentation site built with [Docusaurus](https://docusaurus.io/) for multiple Unreal Engine plugins in one place.
+Documentation site built with [Docusaurus](https://docusaurus.io/) for the **Replicated Containers** Unreal Engine plugin.
 
 **Live URL (after GitHub Pages deploy):**
 
 - https://iamsince-1998.github.io/Plugins-Docs/
 
-## Plugin Sections
+## Documentation Section
 
 - **Replicated Containers**
   - Overview: `docs/replicated-containers/overview.md`
-- **Mobile Performance Optimizer**
-  - Overview: `docs/mobile-performance-optimizer/overview.md`
-- **AAA_HealthSystem**
-  - Overview: `docs/aaa-healthsystem/overview.md`
 
 ## GitHub Pages Setup
 
