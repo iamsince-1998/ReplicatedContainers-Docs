@@ -1,0 +1,104 @@
+// @ts-check
+const { themes: prismThemes } = require('prism-react-renderer');
+
+/** @type {import('@docusaurus/types').Config} */
+const config = {
+  title: 'Plugins Docs',
+  tagline: 'Clean, fast software & API documentation',
+  favicon: 'img/favicon.ico',
+
+  // GitHub Pages URL — update these with your GitHub username and repo name
+  url: 'https://iamsince-1998.github.io',
+  baseUrl: '/Plugins-Docs/',
+
+  // GitHub Pages deployment config
+  organizationName: 'iamsince-1998', // Your GitHub username
+  projectName: 'Plugins-Docs',                   // Your GitHub repo name
+  trailingSlash: false,
+
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+
+  presets: [
+    [
+      'classic',
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
+        docs: {
+          sidebarPath: require.resolve('./sidebars.js'),
+          routeBasePath: '/',  // Docs at root, no /docs prefix
+          editUrl: 'https://github.com/iamsince-1998/Plugins-Docs/edit/main/',
+        },
+        blog: false, // Disable blog
+        theme: {
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      }),
+    ],
+  ],
+
+  themeConfig:
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    ({
+      navbar: {
+        title: 'Plugins Docs',
+        logo: {
+          alt: 'Plugins Docs Logo',
+          src: 'img/logo.svg',
+        },
+        items: [
+          {
+            type: 'docSidebar',
+            sidebarId: 'tutorialSidebar',
+            position: 'left',
+            label: 'Docs',
+          },
+          {
+            href: 'https://github.com/iamsince-1998/Plugins-Docs',
+            label: 'GitHub',
+            position: 'right',
+          },
+        ],
+      },
+      footer: {
+        style: 'dark',
+        links: [
+          {
+            title: 'Docs',
+            items: [
+              { label: 'Introduction', to: '/' },
+              { label: 'API Reference', to: '/api/overview' },
+              { label: 'Guides', to: '/guides/getting-started' },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'GitHub',
+                href: 'https://github.com/iamsince-1998/Plugins-Docs',
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} Plugins Docs. Built with Docusaurus.`,
+      },
+      prism: {
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
+        additionalLanguages: ['bash', 'json', 'yaml', 'python', 'typescript'],
+      },
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
+    }),
+};
+
+module.exports = config;
