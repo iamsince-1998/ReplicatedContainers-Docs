@@ -44,13 +44,16 @@ Generates the static site into `./build`.
   - `api-reference.md`
   - `troubleshooting.md`
 
----
+Use this:
 
-## 🌐 Deploy to GitHub Pages
+1. GitHub repo → **Settings** → **Pages**
+2. Under **Build and deployment** set **Source = GitHub Actions**
+3. Do **not** keep **Deploy from a branch (main/root)**
+4. Re-run the latest workflow or push one new commit
 
-### Automatic (recommended)
+After that, open:
 
-This repo includes a GitHub Actions workflow (`.github/workflows/deploy.yml`).
+- https://iamsince-1998.github.io/Plugins-Docs/
 
 1. Push this repo to GitHub
 2. Go to **Settings → Pages**
@@ -66,9 +69,7 @@ npm run build
 npm run serve -- --host 0.0.0.0 --port 4173
 ```
 
----
-
-## 📁 Project Structure
+## Production test
 
 ```text
 Plugins-Docs/
