@@ -4,16 +4,60 @@ title: Overview
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Mobile Performance Optimizer
 
-Runtime optimization plugin for mobile projects.
+Runtime plugin that automatically tunes FPS, scalability, and dynamic resolution for stable mobile performance.
 
-It automatically tunes performance at runtime with:
+## Visual runtime shape
 
-- Auto scalability
-- Auto FPS limiter
-- Dynamic resolution toggling
-- Thermal-state estimation
+```text
+Frame Samples -> Thermal Estimate -> Policy Decision -> Apply Changes
+      ^                                                   |
+      |------------------- next evaluation tick ----------|
+```
+
+## Core features
+
+- Auto scalability up/down with cooldown and thresholds
+- Auto FPS limiter based on thermal estimate
+- Dynamic resolution toggling with hysteresis
+- Profile-based configuration (Editor/Android/iOS/Fallback)
+- Hardware + device profile auto-tuning
+
+## Blueprint vs C++ control (toggle)
+
+<Tabs>
+  <TabItem value="bp" label="Blueprint Nodes" default>
+
+```text
+BeginPlay
+  -> Get Game Instance Subsystem (MobilePerformanceOptimizerSubsystem)
+  -> Set Optimizer Enabled(true)
+  -> Set Target FPS(60)
+
+Timer / UI Button
+  -> Run Optimization Now
+  -> Get Runtime State
+```
+
+  </TabItem>
+  <TabItem value="cpp" label="C++">
+
+```cpp
+auto* Subsystem = GetGameInstance()->GetSubsystem<UMobilePerformanceOptimizerSubsystem>();
+if (Subsystem)
+{
+    Subsystem->SetOptimizerEnabled(true);
+    Subsystem->SetTargetFPS(60.f);
+    Subsystem->RunOptimizationNow();
+}
+```
+
+  </TabItem>
+</Tabs>
 
 ## Full Config System (UE4.27 to UE5.7 style workflow)
 
@@ -40,8 +84,6 @@ You can configure:
 - Optional startup scalability
 - Optional VSync policy
 - Extra console commands on profile apply
-
-This is designed to stay portable across UE4.27 through UE5.7 by using stable engine APIs and optional cvar passthrough.
 
 ## How It Works
 
@@ -70,15 +112,6 @@ Plugins/MobilePerformanceOptimizer
 
 3. Restart editor.
 
-## Quick Setup
-
-1. Play on device (or desktop preview if enabled).
-2. Get subsystem in Blueprint:
-   - `Get Game Instance Subsystem`
-   - Class: `MobilePerformanceOptimizerSubsystem`
-3. Call `Set Optimizer Enabled(true)` (enabled by default).
-4. Optionally set target FPS via `Set Target FPS`.
-
 ## Runtime Profile Selection
 
 - Android runtime: uses `Android Profile`
@@ -87,19 +120,6 @@ Plugins/MobilePerformanceOptimizer
   - Uses `Editor Preview Profile` when enabled
   - Otherwise uses `Fallback Profile`
 
-### Runtime Testing Dropdown (Editor)
-
-When running in editor, a toolbar dropdown is available in the Play toolbar:
-
-- Label: `MPO: Auto` (or selected profile)
-- Menu options: `Auto`, `Editor Preview`, `Android`, `iOS`, `Fallback`
-- Changing the option during PIE immediately reloads and applies that profile to the optimizer subsystem
-
-Within each selected profile, settings are auto-adjusted by detected hardware/software:
-
-- Hardware signals: CPU cores + RAM
-- Software signal: active UE Device Profile name (for example names containing `low`, `mid`, `high`, `epic`)
-
 ## Blueprint API
 
 - `Set Optimizer Enabled(bool)`
@@ -107,40 +127,5 @@ Within each selected profile, settings are auto-adjusted by detected hardware/so
 - `Run Optimization Now()`
 - `Set Target FPS(float)`
 - `Get Target FPS()`
-- `Get Runtime State()` (returns FPS, frame limit, scalability, dynamic-res state, thermal state)
+- `Get Runtime State()`
 - `Reload Config From Project Settings()`
-
-## Default Runtime Policy
-
-- Target FPS: `60`
-- Evaluation interval: `1.0s`
-- Thermal estimate:
-  - `Normal` when avg FPS >= 95% target
-  - `Warm` when avg FPS >= 80% target
-  - `Hot` when avg FPS >= 65% target
-  - `Critical` otherwise
-- FPS limit by thermal:
-  - Normal: `60`
-  - Warm: `50`
-  - Hot: `40`
-  - Critical: `30`
-- Dynamic resolution:
-  - Enable below `50 FPS`
-  - Disable above `57 FPS`
-- Scalability:
-  - Auto downshift when FPS < target - 4
-  - Auto upshift when FPS > target + 8 and thermal is Normal
-  - Cooldown between changes: `6s`
-
-## Platform Behavior
-
-- Android/iOS: runs by default.
-- Desktop: runs only when `bRunInDesktopPIE` is true (default true for easy testing).
-
-## Notes
-
-- Thermal state is an estimated runtime state derived from sustained FPS behavior.
-- If temperature sensor data is available on device, thermal state also uses real device temperature thresholds.
-- This keeps the plugin portable across platforms and engine configurations.
-- Default config file:
-  - `Plugins/MobilePerformanceOptimizer/Config/DefaultMobilePerformanceOptimizer.ini`

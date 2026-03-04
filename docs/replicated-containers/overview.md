@@ -4,6 +4,9 @@ title: Overview
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Replicated Containers Plugin
 
 Runtime plugin providing **replicated TMap and TSet** components with fast-array delta replication,
@@ -23,6 +26,47 @@ Compatible with **Unreal Engine 4.27 through 5.x** on all supported platforms.
 | Full C++ API | ✓ | ✓ |
 | Dedicated server builds | ✓ | ✓ |
 | All platforms (Win/Linux/Mac/Console/Mobile) | ✓ | ✓ |
+
+
+## Container sync flow (visual)
+
+```text
+Client Intent -> Server RPC -> Mutate Map/Set -> FastArray Delta -> Clients OnRep
+```
+
+## Blueprint vs C++ mutation patterns
+
+<Tabs>
+  <TabItem value="bp" label="Blueprint Nodes" default>
+
+```text
+Client
+  -> Add Item (Replicated Map Component)
+  -> (Internally forwards to server)
+Server
+  -> Validates + applies mutation
+  -> Replicates delta
+Clients
+  -> On Map Changed delegate
+```
+
+  </TabItem>
+  <TabItem value="cpp" label="C++">
+
+```cpp
+// Pseudocode: call plugin map component API
+if (HasAuthority())
+{
+    RepMapComp->SetValue(Key, Value);
+}
+else
+{
+    RepMapComp->ServerSetValue(Key, Value);
+}
+```
+
+  </TabItem>
+</Tabs>
 
 ## Compatibility
 
