@@ -1,6 +1,10 @@
 # Plugins Docs
 
-Documentation site built with [Docusaurus](https://docusaurus.io/), deployed to GitHub Pages.
+Documentation site built with [Docusaurus](https://docusaurus.io/), set up for **multiple plugin doc sets** in one place.
+
+**Live URL (after GitHub Pages deploy):**
+
+- https://iamsince-1998.github.io/Plugins-Docs/
 
 ## 🚀 Setup
 
@@ -28,16 +32,16 @@ Generates the static site into `./build`.
 
 ---
 
-## ⚙️ Configure for your GitHub
+## 🧩 Organizing docs per plugin
 
-Before deploying, update these fields in `docusaurus.config.js`:
-
-```js
-url: 'https://YOUR_GITHUB_USERNAME.github.io',
-baseUrl: '/YOUR_REPO_NAME/',
-organizationName: 'YOUR_GITHUB_USERNAME',
-projectName: 'YOUR_REPO_NAME',
-```
+- Keep each plugin in its own folder under `docs/`.
+- Add each plugin section in `sidebars.js` under **Plugin Docs**.
+- Suggested pages per plugin:
+  - `overview.md`
+  - `installation.md`
+  - `quickstart.md`
+  - `api-reference.md`
+  - `troubleshooting.md`
 
 ---
 
@@ -49,42 +53,31 @@ This repo includes a GitHub Actions workflow (`.github/workflows/deploy.yml`).
 
 1. Push this repo to GitHub
 2. Go to **Settings → Pages**
-3. Set source to **Deploy from a branch → gh-pages**
-4. Push any commit to `main` — it deploys automatically ✅
+3. Set source to **GitHub Actions**
+4. Push any commit to `main` — it builds and deploys automatically ✅
 
 ### Manual
 
+If you want to test a production bundle locally:
+
 ```bash
-GIT_USER=your_github_username npm run deploy
+npm run build
+npm run serve -- --host 0.0.0.0 --port 4173
 ```
 
 ---
 
 ## 📁 Project Structure
 
-```
+```text
 Plugins-Docs/
 ├── docs/
-│   ├── intro.md              # Homepage
+│   ├── intro.md
+│   ├── replicated-containers/
 │   ├── guides/
-│   │   ├── getting-started.md
-│   │   ├── installation.md
-│   │   └── configuration.md
 │   └── api/
-│       ├── overview.md
-│       ├── authentication.md
-│       ├── endpoints.md
-│       └── errors.md
-├── static/                   # Static assets
-├── src/css/custom.css        # Custom styles
-├── docusaurus.config.js      # Main config
-└── sidebars.js               # Sidebar structure
+├── static/
+├── src/css/custom.css
+├── docusaurus.config.js
+└── sidebars.js
 ```
-
-## ✏️ Adding a new doc
-
-1. Create a `.md` file anywhere inside `docs/`
-2. Add a frontmatter `id` and `title`
-3. Add it to `sidebars.js`
-
-That's it!

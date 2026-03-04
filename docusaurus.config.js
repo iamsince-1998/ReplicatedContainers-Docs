@@ -4,8 +4,8 @@ const { themes: prismThemes } = require('prism-react-renderer');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Plugins Docs',
-  tagline: 'Clean, fast software & API documentation',
-  favicon: 'img/favicon.ico',
+  tagline: 'Centralized documentation for all your plugins',
+  favicon: 'img/logo.svg',
 
   // GitHub Pages URL — update these with your GitHub username and repo name
   url: 'https://iamsince-1998.github.io',
