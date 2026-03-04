@@ -14,7 +14,9 @@ const config = {
   // GitHub Pages deployment config
   organizationName: 'iamsince-1998', // Your GitHub username
   projectName: 'Plugins-Docs',                   // Your GitHub repo name
-  trailingSlash: false,
+  // GitHub Pages serves folder-based routes more reliably than `.html` routes.
+  // Keeping trailing slashes enabled prevents deep-link 404s on refresh.
+  trailingSlash: true,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

@@ -48,7 +48,7 @@ The plugin uses `ENGINE_MAJOR_VERSION` / `ENGINE_MINOR_VERSION` guards to select
 | Editor (PIE) | ✓ | Full replication in Play-in-Editor |
 | Standalone Game | ✓ | |
 | Listen Server | ✓ | Server authority on the hosting player |
-| Dedicated Server | ✓ | See [Dedicated Server](./dedicated-server) |
+| Dedicated Server | ✓ | See [Dedicated Server](/replicated-containers/dedicated-server) |
 | Client | ✓ | Read-only; mutations forwarded to server via RPC |
 
 ### Platforms

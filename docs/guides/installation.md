@@ -55,5 +55,5 @@ Never commit your `.env` file to version control. Add it to `.gitignore`.
 :::
 
 :::info
-See the [Configuration guide](./configuration) for all available environment variables.
+See the [Configuration guide](/guides/configuration) for all available environment variables.
 :::

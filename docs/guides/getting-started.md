@@ -48,6 +48,6 @@ Your project is now running at `http://localhost:3000`.
 
 ## Next Steps
 
-- Read the [Installation guide](./installation) for advanced setup
-- Check out the [Configuration guide](./configuration) to customize behavior
+- Read the [Installation guide](/guides/installation) for advanced setup
+- Check out the [Configuration guide](/guides/configuration) to customize behavior
 - Browse the [API Reference](/api/overview) to explore what's possible
