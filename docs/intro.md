@@ -7,12 +7,20 @@ sidebar_position: 1
 
 # Plugins Docs
 
-Welcome! This site hosts documentation for all Unreal Engine plugins by **iamsince-1998**.
+Welcome! This site is your central hub for documentation across your Unreal Engine plugins.
 
 ## Available Plugins
 
-| Plugin | Description |
-|---|---|
-| [Replicated Containers](./replicated-containers/overview) | Replicated TMap & TSet components with delta replication and Blueprint API |
+| Plugin | Status | Docs |
+|---|---|---|
+| Replicated Containers | ✅ Live | [Open docs](./replicated-containers/overview) |
 
-> More plugins coming soon.
+## Adding More Plugin Docs
+
+Use this structure for each new plugin:
+
+1. Create a folder in `docs/` (example: `docs/my-plugin/`).
+2. Add docs pages for overview, install, usage, API, and troubleshooting.
+3. Add the new section to `sidebars.js` under **Plugin Docs**.
+
+That keeps everything organized by plugin while sharing one documentation website.
